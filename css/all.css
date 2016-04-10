@@ -1,0 +1,65 @@
+.wrap{
+
+	margin: 0px auto;
+	position: absoluate;
+	text-align: center;
+	background: #eeeeee;
+	height:100%;
+	font-weight: 600;
+	padding-top:150px; 
+	font-family:Microsoft YaHei;
+}
+.welcome{
+	font-family: Helvetica; 
+	color: #3f4447;
+	font-size:40px;
+}
+.enter{
+	font-family:Microsoft YaHei;
+	font-size: 30px;
+	letter-spacing: 5px;　            　/* 設定文字間距 */
+
+}
+.enter a{
+	text-decoration:none;
+	color:	#198799;
+	line-height: 90px;　　　          　/* 設定文字行距 */
+}
+.link a{
+	text-decoration:none;
+	line-height: 30px;　
+}
+.table{
+	margin: 0px auto;
+	position: absoluate;
+	text-align:left;
+	line-height: 35px;
+}
+.table a{
+	text-decoration:none;
+}
+.fixed a{
+	letter-spacing: 3.5px;
+	position: fixed;
+	right:5px;
+	bottom: 5px;	
+	display: block;
+    background: #BD4242;
+    width: 50px;
+    height: 50px;
+    font-size: 1em;
+    line-height: 50px;
+    border-radius: 100%;
+    color: #FFF;
+    text-align: center;
+	text-decoration:none;
+}
+{
+
+
+}
+.main{
+	position: absolute; 
+	top: 1px;
+	width: 100%;
+	}
