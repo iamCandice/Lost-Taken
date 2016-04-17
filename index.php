@@ -11,20 +11,9 @@
    <br><br><br><br><br><br><br>
 	<div class="enter">
 		<a href="./home.php"> 點我進入公告欄</a> <br>
-		<a href="./enter.php"> 登入系統 </a> <br>
+		<a href="./manager/connect.php"> 管理員系統 </a> <br>
+    <a href="./connect.php"> 用戶登入系統 </a> <br>
 	</div>
 </div>
-	<h2><center>
-	<?php
-		echo "現在時間";
-		$nowTime = new DateTime("now",new DateTimeZone('Asia/Taipei'));
-		echo $nowTime->format("Y年m月d日h點i分");
-		echo "<br>";
-		header('refresh:60');//每分鐘更新
-
-		//瀏覽人數
-
-	?>
-	<h2></center>
 </body>
 </html>
