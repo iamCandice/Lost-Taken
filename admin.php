@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>	
-<?php 
-require_once('./connection.php');
- ?>
+<?php require_once('./connection.php');?>
 	<meta charset="UTF-8">
   <link rel="stylesheet" href="css/all.css" />
 	<title>發布系統</title>
 </head>
+
 <body>
   <div class="wrap">
   <form action="admin.php" method="post" enctype="multipart/form-data">
@@ -26,12 +25,12 @@ require_once('./connection.php');
       <td><input type="date" name="date" /></td></tr>
     <tr>
       <td>已領/未領</td>
-      <td><select name="iftaken" id="">
+      <td><select name="iftaken">
 	           <option value="1">已領</option>
 	           <option value="0">未領</option></select></td></tr>
     <tr>
       <td>password</td>
-      <td><input type="password" name="password" id=""></td></tr>
+      <td><input type="password" name="password"></td></tr>
     </table><br>
   <input id="submit" name="submit" type="submit" value="開始上傳">
 </form><br>
