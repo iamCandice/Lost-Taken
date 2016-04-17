@@ -14,7 +14,6 @@ if($_SESSION['stu_id'] == null)
     echo '<meta http-equiv=REFRESH CONTENT=0;url=index.php>';
 }
  ?>
-  
   <link rel="stylesheet" href="css/all.css" />
   <title>發布系統</title>
 </head>
@@ -49,7 +48,7 @@ if($_SESSION['stu_id'] == null)
        <br>
     <tr>
       <td>已領/未領</td>
-      <td><select name="iftaken" id="">
+      <td><select name="iftaken" >
              <option value="0">未領</option>
              <option value="1">已領</option>
              </select></td></tr>
@@ -73,8 +72,7 @@ if($_SESSION['stu_id'] == null)
 </table>
 </div>
 
-<div class="fixed"><a href="./index.php">首頁 </a>
-</div>
+<div class="fixed"><a href="./index.php">首頁</a></div>
 
 </div>
 

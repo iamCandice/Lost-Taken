@@ -34,7 +34,7 @@ require_once('./connection.php')
 	  <option value="0">未領</option></select></td></tr>
 <tr>
   <td>password</td>
-  <td><input type="password" name="password" id=""></td>
+  <td><input type="password" name="password"></td>
 </tr>
   </table><br>
   <input id="submit" name="submit" type="submit" value="開始上傳">

@@ -1,15 +1,14 @@
 <?php session_start(); ?>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 <!DOCTYPE html>
 <html>
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" href="css/all.css" />
 	<title></title>
 </head>
-<body><h2>
+<body>
 <div class="wrap">
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php
 
 if(isset($_POST["id"]) && isset($_POST["pw"]))
@@ -50,7 +49,5 @@ else
 }
 	?>
 </div>
-
-</h2>
 </body>
 </html>
