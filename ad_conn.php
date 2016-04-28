@@ -1,17 +1,18 @@
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" href="css/all.css" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title></title>
 </head>
-<body>
+<body><h2>
 <div class="wrap">
 
 <?php session_start(); ?>
 <!--上方語法為啟用session，此語法要放在網頁最前方-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php
+
 	if(isset($_POST["id"]) && isset($_POST["pw"]))
 	{
 //連接資料庫
@@ -33,7 +34,7 @@ if($id != null && $pw != null && $row[0] == $id && $row[2] == $pw)
         $_SESSION['m_id'] = $id;
 
         echo 'Enter Success';
-        echo '<meta http-equiv=REFRESH CONTENT=2;url=ad_delete.php>';
+        echo '<meta http-equiv=REFRESH CONTENT=2;url=announce.php>';
 	}
 	else
 	{
@@ -43,8 +44,8 @@ if($id != null && $pw != null && $row[0] == $id && $row[2] == $pw)
 	echo "</center>";
 }
 	?>
-</div>
 
+</h2>
 </body>
 </html>
 

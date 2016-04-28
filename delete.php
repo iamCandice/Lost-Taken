@@ -1,43 +1,47 @@
-<!DOCTYPE html>
+<?php session_start(); ?>
+<!--上方語法為啟用session，此語法要放在網頁最前方-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><!DOCTYPE html>
+
 <html lang="en">
-<head>
-<?php
-require_once('./connection.php')
-?>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="css/all.css" />
-<title>刪除物品</title>
-</head>
-
-<body>
-<div class="wrap">
-<form action="delete.php" method="post" enctype="multipart/form-data">
-  <table class="table">
-  <tr>
-  	<td>請輸入欲整筆刪除之物品編號</td>
-  	<td><input type="text" name="delete_no" /></td></tr>
-  <tr>
-   	<td>password</td>
-    <td><input type="password" name="password" id=""></td></tr>
-  </table><br>
-  <input id="submit" name="submit" type="submit" value="開始上傳">
-  
-</form><br>
-<table class="table"><tr><td><a href="./index.php"> 點我回首頁 </a></td></tr></table>
-</div>
-</body>
-</html>
-
+<head>  
 <?php 
-if(($_POST['password']=='rateadd')&&isset($_POST["delete_no"]))
-{
-$delete_no = $_POST["delete_no"];
-$sql =" DELETE FROM `database`.`itemlog` WHERE `itemlog`.`no` = '$delete_no'";
-mysqli_query($conn,$sql);
-}
-
-
-
-
-
+require_once('./connection.php');
  ?>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/all.css" />
+  <title>發布系統</title>
+</head>
+<body>
+  <div class="wrap">
+<?php
+
+$id = $_GET["id"];
+
+	$del = "DELETE FROM itemlog WHERE no=".$id;
+	mysqli_query($conn, $del);
+
+
+	$read="SELECT * FROM itemlog";
+	$readresult=mysqli_query($conn,$read);
+
+	echo "<table border='1'>";
+	echo "<tr><td>編號</td><td>物品名稱</td><td>物品描述</td><td>照片</td><td>遺失/撿獲時間</td><td>遺失/撿獲地點</td><td>已領/未領</td><td>遺失或撿獲</td></tr>";
+	while ($result=mysqli_fetch_array($readresult)) 
+	{
+		echo "<tr>";
+		echo "<td>".$result[0]."</td><td>".$result[1]."</td><td>".$result[2]."</td><td><img src=".$result[3]." alt='imgageid' height='300' width='300'></td><td>".$result[4]."</td><td>".$result[5]."</td><td>".$result[6]."</td><td>".$result[7]."</td>";
+		echo "<td><a href='update.php?id=".$result[0]."'>更新資料</a></td>";
+		echo "<td><a href='delete.php?id=".$result[0]."'>刪除資料</a></td>";
+		echo "</tr>";
+	}
+	echo "</table>";
+
+?>
+
+<div class="fixed"><a href="./announce.php">上頁 </a>
+</div>
+
+</div>
+
+ </body>
+</html>
