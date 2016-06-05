@@ -1,11 +1,16 @@
-<?php session_start(); ?>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+﻿<?php 
+session_start(); 
+?>
 <?php
-//將session清空
-echo '登出中......';
-unset($_SESSION['stu_id']);
-unset($_SESSION['stu_name']);
-echo '<meta http-equiv=REFRESH CONTENT=1;url=index.php>';
-
-
+if(!$_SESSION['stu_id']){
+	echo "<script>alert('尚未登入喔！')</script>";
+	header("refresh:0.1;url=index.php");
+		
+}
+else{
+	session_unset();
+	echo "<script>alert('登出成功!')</script>";
+	header("refresh:0.1;url=index.php");
+}	
+	
 ?>

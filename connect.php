@@ -32,7 +32,7 @@ if(isset($_POST["id"]) && isset($_POST["pw"]))
 	{
         //將帳號寫入session，方便驗證使用者身份
         $_SESSION['stu_id'] = $id;
-
+        $_SESSION['stu_name'] = $row[1];
 
         echo 'Login Success';
         echo '<meta http-equiv=REFRESH CONTENT=2;url=announce.php>';

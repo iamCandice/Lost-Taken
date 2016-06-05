@@ -1,12 +1,12 @@
 .wrap{
 
-	margin: 0px auto;
-	position: absoluate;
+//	margin: 0px auto;
+	//position: absoluate;
 	text-align: center;
 	background: #eeeeee;
-	height:100%;
-	font-weight: 600;
-	padding-top:150px; 
+	//height:100%;
+	//font-weight: 600;
+	//padding-top:150px; 
 	font-family:Microsoft YaHei;
 }
 .welcome{
@@ -62,4 +62,4 @@
 	position: absolute; 
 	top: 1px;
 	width: 100%;
-	}
+	}                                     

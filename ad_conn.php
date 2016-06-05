@@ -34,7 +34,7 @@ if($id != null && $pw != null && $row[0] == $id && $row[2] == $pw)
         $_SESSION['m_id'] = $id;
 
         echo 'Enter Success';
-        echo '<meta http-equiv=REFRESH CONTENT=2;url=announce.php>';
+        echo '<meta http-equiv=REFRESH CONTENT=2;url=ad_delete.php>';
 	}
 	else
 	{

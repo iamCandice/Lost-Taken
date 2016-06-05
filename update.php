@@ -1,37 +1,56 @@
-<?php session_start(); ?>//還沒完成~~
+<?php session_start(); ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php
 include("connection.php");
 
-if($_SESSION['no'] != null)
+if($_SESSION['stu_id'] != null)
 {
-        //將$_SESSION['username']丟給$id
-        //這樣在下SQL語法時才可以給搜尋的值
-        $id = $_SESSION['no'];
-        //若以下$id直接用$_SESSION['username']將無法使用
-        $sql = "SELECT * FROM itemlog where no='$id'";
-        $result = mysqli_query($sql);
-        $row = mysql_fetch_row($result);
-    
-        echo "<form name=\"form\" method=\"post\" action=\"update_finish.php\">";
+
+        $id = $_GET["id"];
+        $_SESSION['no'] = $id;
+
+        $sql = "SELECT * FROM itemlog where no=".$id;
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_row($result);
+        
+        echo "<form action=announce_finish.php method=post enctype=multipart/form-data>";
         echo "<table>";
 
-        echo "物品名稱：<input type=\"text\" name=\"id\" value=\"$row[1]\" />(此項目無法修改) <br>";
-        echo "描述：<input type=\"text\" name=\"describe\" value=\"$row[2]\" /> <br>";
-        echo "上傳照片：<input type=\"image\" name=\"file\" value=\"$row[2]\" /> <br>";
-        echo "遺失/撿獲時間：<input type=\"text\" name=\"date\" value=\"$row[3]\" /> <br>";
-        echo "遺失/撿獲地點：<input type=\"text\" name=\"location\" value=\"$row[4]\" /> <br>";
-        echo "已領/未領：<input type=\"text\" name=\"iftaken\" value=\"$row[5]\" /> <br>";
-        echo "遺失或撿獲：<input type=\"text\" name=\"loseorfinder\" value=\"$row[6]\" /> <br>";
+        echo "編號：" .$row[0]. "<br>";
 
+        echo  "物品名稱<input type=\"text\" name=\"itemname\" value=\"$row[1]\" /><br>";
 
-        echo "<input type=\"submit\" name=\"button\" value=\"確定\" />";
-        echo "</table>";
+        echo "描述<input type=\"text\" name=\"describe\" value=\"$row[2]\" /><br>";
+        echo "上傳照片<input type=\"hidden\" name=\"MAX_FILE_SIZE\" value=\"1000000\" /><input name=\"image\" type=\"file\"/><br>";
+        
+        echo "遺失/撿獲時間<input type=\"date\" name=\"date\" value= \"$row[4]\"/>
+              <br>";
+
+        echo "遺失/撿獲地點<select name=\"location\">
+              <option value=\"系辦\">系辦</option>
+              <option value=\"212\">212</option>   
+              </select><br>";
+
+        echo "已領/未領<select name=\"iftaken\" >
+             <option value=\"0\">未領</option>
+             <option value=\"1\">已領</option>
+             </select><br>";
+
+        echo "遺失或撿獲<select name=\"loseorfinder\">
+              <option value=\"1\">我撿到東西</option>
+              <option value=\"0\">我東西掉了</option>
+              </select><br>";
+
+        echo "</table><br>";
+        echo "<input id=\"submit\" name=\"submit\" type=\"submit\" value=\"更新資料\"><br>";
+  
         echo "</form>";
-}
+        $del = "DELETE FROM itemlog WHERE no =".$id;
+        mysqli_query($conn, $del);
+}  
 else
 {
-        echo '您無權限觀看此頁面!';
-        echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>';
+        echo "<script>alert('您無權限觀看此頁面!');</script>";
+        echo '<meta http-equiv=REFRESH CONTENT=0;url=index.php>';
 }
 ?>

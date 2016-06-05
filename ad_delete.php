@@ -1,4 +1,4 @@
-<!DOCTYPE html>//給使用者強迫刪除
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <?php
@@ -15,7 +15,7 @@ require_once('./connection.php')
   <table class="table">
   <tr>
   	<td>請輸入欲整筆刪除之物品編號</td>
-  	<td><input type="text" name="delete_no" /></td></tr>
+  	<td><input type="text" name="delete_no" />(注意刪除之後就無法復原)</td></tr>
   <tr>
    	<td>password</td>
     <td><input type="password" name="password" id=""></td></tr>
@@ -33,10 +33,5 @@ require_once('./connection.php')
 $delete_no = $_POST["delete_no"];
 $sql =" DELETE FROM `database`.`itemlog` WHERE `itemlog`.`no` = '$delete_no'";
 mysqli_query($conn,$sql);
-
-
-
-
-
 
  ?>

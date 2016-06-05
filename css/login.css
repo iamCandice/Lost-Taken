@@ -1,0 +1,94 @@
+<style type="text/css">
+
+.sitebody{
+  width:1036px;
+  margin:0 auto;
+  font-size:13px;
+  font-family:"微軟正黑體";
+}
+.logo{
+  width:290px;
+  height:163px;
+  float: left;
+  background-image:url(pic/logo.png);
+}
+.header{
+  margin-left:142px;
+  width:1036px;
+  height:163px;
+  /*text-align:center;*/
+  /*line-height:80px;*/
+  background-image:url(pic/header.png);
+}
+
+.content{
+	border-radius:20px; 
+	margin-top:20;
+	margin-bottom:-80; 
+	margin-left:530px;
+	border:0px;  /*邊界*/ 
+    width:350px;  /*寬度*/
+    height:480px; /*長度*/
+    border-color:transparent;   
+    text-align:center;
+    padding:2%;  /*留白*/
+
+	background-repeat: no-repeat;
+}
+.footer{
+  margin-left:142px;
+  clear:both;
+  width:1036px;
+  height:79px;
+  text-align:center;
+  line-height:80px;
+  background-image:url(pic/footer.png);
+}
+
+#menubar{
+	font-size: 30px;
+	margin: 0px 30px 0px 0px;
+  text-align:right;
+  line-height:270px;
+}
+  
+a{text-decoration:none;}/*當滑鼠移經超連結時才顯示底線*/
+a:hover{text-decoration:underline;}/*當滑鼠移經超連結時才顯示底線*/
+a:hover {color:#8CC63F;} /* 設定滑鼠游標指在連結位置上的樣式顏色 */
+
+.menu_c{
+  font-size: 18px;
+	margin: 0px 5px 0px 5px;
+	text-align:right;
+  font-family:"微軟正黑體";
+  color:#4D4D4D;
+  font-weight: 900;
+}
+
+input[type=submit]{
+	padding:5px 60px; 
+	background:#73BF00; 
+	border:0 none;
+	cursor:pointer; /*滑鼠游標圖案*/
+	border-radius: 12px;  /*圓角*/
+	font-weight:900;
+	font-family:微軟正黑體;
+	font-size:24px;
+	/*background-image:url(pic/submit.png);*/
+	width:280px;
+	height:40px;
+	position:relative; 
+	top:180px; 
+}
+
+input[type=password]{
+	width:280px;
+	height:35px;
+	padding:5px; 
+	border:2px solid #888888; 
+	border-radius: 5px;
+	position:relative; 
+	top:151px; 
+}
+
+</style>

@@ -1,0 +1,105 @@
+<html lang="zh-tw">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<title>左右水平廣告輪播</title>
+<style type="text/css">
+	#ad {
+		width: 300px;   /*更改*/
+		height: 300px;  /*更改*/
+		position: relative;
+		overflow: hidden;
+		border: 1px solid #ccc;
+	}
+	#ad ul.list {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		position: absolute;
+		width: 9999px; 
+		height: 100%;
+	}
+	#ad ul.list li {
+		float: left;
+		width: 302px;  /*更改*/
+		height: 302px; /*更改*/
+	}
+	#ad .list img{
+		width: 100%;
+		height: 100%;
+		border: 0;
+	}
+	#ad ul.playerControl {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		position: absolute;
+		bottom: 5px;
+		right: 5px;
+		height: 14px;
+	}
+	#ad ul.playerControl li {
+		float: left;
+		width: 23px;
+		height: 14px;
+		cursor: pointer;
+		margin: 0px 2px;
+		background: url(pic/home/new_rect_ctrl2.png) no-repeat 0 0;
+		background-size:200%;
+	}
+	#ad ul.playerControl li.current { 
+		background-position: -23px 0;
+	}
+</style>
+<script type="text/javascript">
+	$(function(){
+		// 先取得必要的元素並用 jQuery 包裝
+		// 再來取得 $block 的高度及設定動畫時間
+		var $block = $('#ad'),
+			$slides = $('ul.list', $block),
+			_width = $block.width(),
+			$li = $('li', $slides),
+			_animateSpeed = 600;
+
+		// 產生 li 選項
+		var _str = '';
+		for(var i=0, j=$li.length;i<j;i++){
+			// 每一個 li 都有自己的 className = playerControl_號碼
+			_str += '<li class="playerControl_' + (i+1) + '"></li>';
+		}
+
+		// 產生 ul 並把 li 選項加到其中
+		// 並幫 li 加上 mouseover 事件
+		$('<ul class="playerControl"></ul>').html(_str).appendTo($slides.parent()).css('left', function(){
+			// 把 .playerControl 移到置中的位置
+			return (_width - $(this).width()) / 2;
+		}).find('li').mouseover(function(){
+			var $this = $(this);
+			$this.addClass('current').siblings('.current').removeClass('current');
+			// 移動位置到相對應的號碼
+			$slides.stop().animate({
+				left: _width * $this.index() * -1
+			}, _animateSpeed);
+
+			return false;
+		}).eq(0).mouseover();
+	});
+</script>
+</head>
+
+<body>
+	<div id="ad">
+		<ul class="list">
+			<li> <a href="http://adanner-kitchen.myweb.hinet.net/" "#"><img src="pic/AD/brigitte_sample.jpg" border=0 width=23%></a></li>
+        
+
+          <li><a href="http://adanner-kitchen.myweb.hinet.net/" "#"><img src="pic/AD/brigitte_sample2.jpg" border=0 width=23%></a></li>
+         
+			
+		</ul>
+	</div>
+    
+</body>
+</html>
